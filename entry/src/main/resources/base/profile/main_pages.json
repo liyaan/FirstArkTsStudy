@@ -1,0 +1,9 @@
+{
+  "src": [
+    "pages/Home",
+    "pages/HomeTab",
+    "pages/shopList",
+    "pages/sevenPasses",
+    "pages/Detail"
+  ]
+}
