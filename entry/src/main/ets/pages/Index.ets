@@ -1,6 +1,7 @@
 // @ts-nocheck
 // 导入router模块
 import router from '@ohos.router';
+import { Header } from './header';
 
 
 @Extend(Button) function styleButton() {
@@ -13,15 +14,18 @@ import router from '@ohos.router';
   .backgroundColor('#36D')
 }
 
-
+@Entry
 @Component
-export struct Index {
+struct Index {
   @State message: string = 'Hello World'
   @State imageWidth: number = 100
 
   build() {
 
     Column() {
+      Header({ title: '学习', onLeftClick: () => {
+        router.back()
+      } }).padding({ left: 10, top: 5, bottom: 5 })
       Text(this.message)
         .fontSize(10)
         .fontWeight(FontWeight.Bold)
@@ -78,7 +82,7 @@ export struct Index {
           .type(ButtonType.Normal)
           .margin(10)
       }.width('90%')
-      .justifyContent(FlexAlign.SpaceEvenly).margin({ top: 20, bottom: 20 })
+      .justifyContent(FlexAlign.SpaceEvenly).margin({ top: 10, bottom: 10 })
 
       Slider(
         { min: 100, max: 300, value: this.imageWidth, step: 10 }
@@ -99,6 +103,14 @@ export struct Index {
             url: 'pages/shopList'
           })
         })
+      Button("视频播放页面")
+        .fontColor('#fff')
+        .type(ButtonType.Normal)
+        .onClick(() => {
+          router.pushUrl({
+            url: 'pages/SimpleVideoIndex'
+          })
+        }).margin({ top: 10 })
       Button("逢七过")
         .styleButton()
         .margin({ top: 10 })

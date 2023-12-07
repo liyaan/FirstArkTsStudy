@@ -1,11 +1,26 @@
 import router from '@ohos.router'
+import { ConsoleUtils } from '../model/ConsoleUtils'
+import { UserData } from '../model/UserData'
 
 @Entry
 @Component
 struct Home {
   onPageShow() {
-    setTimeout(() => {
-      router.pushUrl({ url: 'pages/HomeTab' })
+    setTimeout(async () => {
+      UserData.getPrefer('token', (token) => {
+        ConsoleUtils.log("UserData " + token)
+        if (token) {
+          ConsoleUtils.log("UserData " + "aaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+          router.pushUrl({ url: 'pages/HomeTab' })
+        } else {
+          ConsoleUtils.log("UserData " + "bbbbbbbbbbbbbbbbbbbbbbbbbb")
+          router.pushUrl({ url: 'pages/Login' })
+        }
+      }, () => {
+        ConsoleUtils.log("UserData " + "ccccccccccccccccccccccccccc")
+        router.pushUrl({ url: 'pages/Login' })
+      })
+
     }, 1000)
   }
 

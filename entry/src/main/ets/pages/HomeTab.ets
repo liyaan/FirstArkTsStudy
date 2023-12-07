@@ -1,6 +1,8 @@
 import router from '@ohos.router'
 import { FoodInfo } from '../model/DataModels'
-import { Index } from '../pages/Index'
+import { My } from './My'
+import { PhotoList } from './PhotoList'
+import { VideoList } from './VideoList'
 
 @Entry
 @Component
@@ -19,12 +21,43 @@ struct HomeTab {
         //   Text("实战开发教程，会实现全部功能。").fontSize(18).fontColor(0x3E3E3E)
         // }.padding(30)
         // .alignItems(HorizontalAlign.Center)
-        Index()
+        if (this.currentTabIndex == 1) {
+          PhotoList()
+        }
+
       }.tabBar(this.bar('记录', $r('app.media.ic_bottom_record'), 1))
+
+      TabContent() {
+        // Column({ space: 10 }) {
+        //   Text("敬请期待第二季").fontSize(26).fontColor(0x3E3E3E)
+        //   Text("实战开发教程，会实现全部功能。").fontSize(18).fontColor(0x3E3E3E)
+        // }.padding(30)
+        // .alignItems(HorizontalAlign.Center)\
+        if (this.currentTabIndex == 2) {
+          VideoList()
+        }
+
+      }.tabBar(this.bar('视频', $r('app.media.ic_public_delete'), 2))
+
+      TabContent() {
+        // Column({ space: 10 }) {
+        //   Text("敬请期待第二季").fontSize(26).fontColor(0x3E3E3E)
+        //   Text("实战开发教程，会实现全部功能。").fontSize(18).fontColor(0x3E3E3E)
+        // }.padding(30)
+        // .alignItems(HorizontalAlign.Center)\
+        if (this.currentTabIndex == 3) {
+          My()
+        }
+
+      }.tabBar(this.bar('我的', $r('app.media.ic_bottom_home'), 3))
     }.barPosition(BarPosition.End)
     .onChange((index) => {
       this.currentTabIndex = index
     })
+  }
+
+  onBackPress() {
+    router.clear()
   }
 
   @Builder

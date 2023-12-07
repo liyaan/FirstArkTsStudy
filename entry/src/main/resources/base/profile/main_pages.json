@@ -4,6 +4,13 @@
     "pages/HomeTab",
     "pages/shopList",
     "pages/sevenPasses",
-    "pages/Detail"
+    "pages/Detail",
+    "pages/Login",
+    "pages/PlayVideo",
+    "pages/Register",
+    "pages/SimpleVideoIndex",
+    "pages/Index",
+    "pages/SendEmail",
+    "pages/SimpleVideoPlay"
   ]
 }
