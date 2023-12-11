@@ -1,9 +1,11 @@
+import { ConsoleUtils } from '../../model/ConsoleUtils'
+
 export class Log {
   static info(tag, message) {
-    console.log(tag, message)
+    ConsoleUtils.log(message)
   }
 
   static error(tag, message) {
-    console.error(tag, message)
+    ConsoleUtils.error(message)
   }
 }

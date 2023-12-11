@@ -11,6 +11,11 @@
     "pages/SimpleVideoIndex",
     "pages/Index",
     "pages/SendEmail",
-    "pages/SimpleVideoPlay"
+    "pages/PhotoInfo",
+    "pages/SendInfo",
+    "pages/AddInfo",
+    "pages/SimpleVideoPlay",
+    "pages/DetailPage",
+    "pages/DetailListPage"
   ]
 }

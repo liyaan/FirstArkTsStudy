@@ -4,6 +4,9 @@ export struct Header {
   private onLeftClick: (event: ClickEvent) => void
   private onRightClick: (event: ClickEvent) => void
   private isVisRight: boolean = false
+  private isVisRightText: boolean = false
+  private rightText: string = '添加'
+  private iconRight: string | Resource = $r('app.media.title_left')
 
   build() {
     Row() {
@@ -15,8 +18,16 @@ export struct Header {
         .fontWeight(FontWeight.Bold).margin({ left: 20 })
       Blank()
       if (this.isVisRight) {
-        Image($r('app.media.title_left'))
+        Image(this.iconRight)
           .width(30).onClick(this.onRightClick)
+      }
+      if (this.isVisRightText) {
+        Text(this.rightText)
+          .fontColor('#000')
+          .fontSize(18)
+          .fontWeight(FontWeight.Bold)
+          .margin({ right: 20 })
+          .onClick(this.onRightClick)
       }
 
     }.width('100%')

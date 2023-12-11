@@ -1,0 +1,27 @@
+import { RequestOptions } from './RequestOptions';
+import { httpCore as HttpCore } from './HttpCore';
+import { ConsoleUtils } from '../../model/ConsoleUtils';
+/**
+ * <pre>
+ * @desc       : 对外管理器
+ * </pre>
+ */
+export class HttpManager {
+  private static mInstance: HttpManager;
+
+  // 防止实例化
+  private constructor() {
+  }
+
+  static getInstance(): HttpManager {
+    if (!HttpManager.mInstance) {
+      HttpManager.mInstance = new HttpManager();
+    }
+    return HttpManager.mInstance;
+  }
+
+  request<T>(option: RequestOptions): Promise<T> {
+    ConsoleUtils.log(option.url)
+    return HttpCore.request(option);
+  }
+}

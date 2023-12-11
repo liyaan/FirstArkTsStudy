@@ -1,4 +1,6 @@
 export class StringUtils {
+
+  public static  TOKEN_STRING:String
   static isNotNullOrEmpty(filePath: string): any {
     if (filePath) {
       return true
@@ -19,4 +21,5 @@ export class StringUtils {
     }
     return false
   }
+
 }

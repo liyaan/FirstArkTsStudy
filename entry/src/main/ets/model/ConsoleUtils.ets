@@ -8,4 +8,8 @@ export class ConsoleUtils {
   static info(message) {
     console.info(this.TAG + "," + message)
   }
+
+  static error(message) {
+    console.error(this.TAG + "," + message)
+  }
 }

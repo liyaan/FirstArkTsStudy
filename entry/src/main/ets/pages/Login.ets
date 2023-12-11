@@ -2,6 +2,7 @@ import { HttpUtils } from '../model/HttpUtils'
 import { ToastUtils } from '../model/ToastUtils'
 import router from '@ohos.router'
 import { UserData } from '../model/UserData'
+import { StringUtils } from '../common/utils/StringUtils'
 
 @Entry
 @Component
@@ -59,6 +60,7 @@ struct Login {
               UserData.putPrefer("id", id.toFixed(0))
               UserData.putPrefer("account", account)
               UserData.putPrefer("token", token)
+              StringUtils.TOKEN_STRING = token
               router.pushUrl(
                 { url: 'pages/HomeTab' }
               )

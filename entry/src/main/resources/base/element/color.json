@@ -15,6 +15,14 @@
     {
       "name": "slide_selectedColor",
       "value": "#FF4B6A"
+    },
+    {
+      "name": "blue_089ed9",
+      "value": "#089ed9"
+    },
+    {
+      "name": "detail_background",
+      "value": "#000000"
     }
   ]
 }

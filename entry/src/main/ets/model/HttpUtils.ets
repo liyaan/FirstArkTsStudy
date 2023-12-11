@@ -1,4 +1,5 @@
 import http from '@ohos.net.http';
+import { StringUtils } from '../common/utils/StringUtils';
 import { ToastUtils } from '../model/ToastUtils'
 import { ConsoleUtils } from './ConsoleUtils';
 import { UserData } from './UserData';
@@ -15,11 +16,7 @@ export class HttpUtils {
         method: http.RequestMethod.POST,
         header: {
           'Content-Type': 'application/json',
-          'token': UserData.getPrefer('token', (token) => {
-            token
-          }, () => {
-            ""
-          })
+          'token': StringUtils.TOKEN_STRING
         },
         extraData: JSON.stringify(data),
         connectTimeout: 60000,
@@ -56,15 +53,12 @@ export class HttpUtils {
              callSuccess: (string) => void,
              callError: (string) => void) {
     try {
+      ConsoleUtils.log("url:" + CONST_URL + url)
       httpRequest.request(CONST_URL + url,
         {
           method: http.RequestMethod.GET,
           header: {
-            'token': UserData.getPrefer('token', (token) => {
-              token
-            }, () => {
-              ""
-            })
+            'token': StringUtils.TOKEN_STRING
           },
           connectTimeout: 60000,
           readTimeout: 60000

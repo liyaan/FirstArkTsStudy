@@ -2,6 +2,11 @@ import { HttpUtils } from '../model/HttpUtils'
 import MyModel from '../model/MyModel'
 import { UserData } from '../model/UserData'
 import router from '@ohos.router'
+import { StringUtils } from '../common/utils/StringUtils'
+import { HttpManager } from '../common/http/HttpManager'
+import { PersonDynamicList } from '../model/PersonDynamicList'
+import { RequestMethod } from '../common/http/RequestOptions'
+import { ConsoleUtils } from '../model/ConsoleUtils'
 
 @Component
 export struct My {
@@ -40,14 +45,24 @@ export struct My {
       }.width('100%')
       .height(150).padding({ left: 25 }).backgroundColor('#ffffff')
 
-      this.item($r('app.media.avocado'), '服务', 15)
+      this.item($r('app.media.avocado'), '服务', 15, () => {
+      })
       this.item($r('app.media.blueberry'), '发送邮件', 15, () => {
         router.pushUrl({
           url: 'pages/SendEmail'
         })
       })
-      this.item($r('app.media.icecream'), '朋友圈', 0)
-      this.item($r('app.media.kiwi'), '表情', 0)
+      this.item($r('app.media.icecream'), '朋友圈', 0, () => {
+        router.pushUrl({
+          url: "pages/SendInfo",
+          params: {
+            'signType': 0
+          }
+        })
+
+      })
+      this.item($r('app.media.kiwi'), '表情', 0, () => {
+      })
       Button('学习Demo')
         .width('100%')
         .height(40)
@@ -66,7 +81,7 @@ export struct My {
         .type(ButtonType.Normal)
         .margin({ top: 30, left: 15, right: 15 })
         .onClick(() => {
-          router.pushUrl({
+          router.back({
             url: "pages/Login"
           })
           UserData.clear()
@@ -76,7 +91,7 @@ export struct My {
     .backgroundColor('#f0f0f0')
   }
 
-  @Builder item(icon: string | Resource, content: string, top: number, onClickView: () => void = null) {
+  @Builder item(icon: string | Resource, content: string, top: number, onClickView: () => void) {
     Row() {
       Image(icon)
         .width(40)
@@ -96,5 +111,34 @@ export struct My {
       onClickView()
     })
 
+  }
+
+  sendHttp(header) {
+    // ConsoleUtils.log(header.token)
+    // HttpUtils.get('getUserInfo', (value) => {
+    // }, (err) => {
+    // })
+    HttpManager.getInstance()
+      .request<PersonDynamicList>(
+        {
+          method: RequestMethod.GET,
+          header: header,
+          url: 'https://api.apiopen.top/api/getPersonDynamicList'
+        }
+      )
+      .then((result) => {
+        router.pushUrl({
+          url: "pages/SendInfo",
+          params: {
+            list: result.result.list
+          }
+        })
+      })
+      .catch((err) => {
+        ConsoleUtils.error(JSON.stringify(err));
+      })
+      .finally(() => {
+        ConsoleUtils.error("finally");
+      });
   }
 }

@@ -25,7 +25,7 @@ struct HomeTab {
           PhotoList()
         }
 
-      }.tabBar(this.bar('记录', $r('app.media.ic_bottom_record'), 1))
+      }.tabBar(this.bar('图片', $r('app.media.ic_bottom_record'), 1))
 
       TabContent() {
         // Column({ space: 10 }) {
@@ -49,7 +49,7 @@ struct HomeTab {
           My()
         }
 
-      }.tabBar(this.bar('我的', $r('app.media.ic_bottom_home'), 3))
+      }.tabBar(this.bar('我的', $r('app.media.ic_bottom_home'), 3)).margin({ top: 5 })
     }.barPosition(BarPosition.End)
     .onChange((index) => {
       this.currentTabIndex = index
@@ -71,7 +71,8 @@ struct HomeTab {
         .width(24)
         .height(24)
         .fillColor(this.currentTabIndex === index ? '#55ff55' : '')
-      Text(name).fontSize(11).fontColor(0x3E3E3E).margin(10).fontColor(this.currentTabIndex === index ? '#55ff55' : '')
+        .margin({ top: 5 })
+      Text(name).fontSize(11).fontColor(0x3E3E3E).margin(5).fontColor(this.currentTabIndex === index ? '#55ff55' : '')
     }
   }
 }

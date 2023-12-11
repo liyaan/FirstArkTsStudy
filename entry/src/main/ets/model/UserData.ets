@@ -1,5 +1,7 @@
 import data_preferences from '@ohos.data.preferences';
 import common from '@ohos.app.ability.common';
+import { ConsoleUtils } from './ConsoleUtils';
+import { PreferencesUtils } from './PreferencesUtils';
 
 /**
  * 轻量级缓存工具类
@@ -19,7 +21,7 @@ export class UserData {
     promise.then((res) => {
       res.get(name, "")
         .then((data: data_preferences.ValueType) => {
-          console.log(this.TAG + " ------- " + name + " = " + data.toString())
+          ConsoleUtils.log(this.TAG + " ------- " + name + " = " + data.toString())
           callBackData(data.toString())
         }).catch(() => {
         callBackCatch()
@@ -38,9 +40,9 @@ export class UserData {
     promise.then((res) => {
       res.put(name, value).then(() => {
         res.flush();
-        console.log(this.TAG + " ------- " + name.toString() + "  " + value)
+        ConsoleUtils.log(this.TAG + " ------- " + name.toString() + "  " + value)
       }).catch((e) => {
-        console.log(this.TAG + " ------- " + name.toString() + "  " + value + "  111 " + e)
+        ConsoleUtils.log(this.TAG + " ------- " + name.toString() + "  " + value + "  111 " + e)
       })
     })
   }
@@ -49,8 +51,26 @@ export class UserData {
     promise.then((res) => {
       res.delete('token', (callback) => {
         res.flush()
-        console.log(this.TAG + " ------- delete success")
+        ConsoleUtils.log(this.TAG + " ------- delete success")
       })
     })
+  }
+
+  static getPreferName(name): String {
+    promise.then((res) => {
+      res.get(name, "")
+        .then((data: data_preferences.ValueType) => {
+          let token = data.toString()
+          ConsoleUtils.log("-------" + token)
+          token
+        })
+    })
+    return
+  }
+
+  static async getPreferAwait(name, callBack: (String) => void) {
+    let preferences = await PreferencesUtils.getPreferences(context, 'mystore');
+    let value = await preferences.get(name, "")
+    callBack(value)
   }
 }

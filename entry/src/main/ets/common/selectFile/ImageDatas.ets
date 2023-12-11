@@ -1,0 +1,25 @@
+export class ImageData {
+  static images = [
+    'https://pic4.zhimg.com/80/v2-c447d691c1011bc60bc40d1d47ce92b7_720w.png',
+    'https://pic4.zhimg.com/80/v2-3e398c920e60082e366c05a52b38c913_720w.png',
+    'https://pic1.zhimg.com/80/v2-a9a91bc99464e6029bad46a4c62caa3c_720w.png',
+    'https://pic2.zhimg.com/80/v2-ecb85a44d26d6b40467e858441b703e5_720w.png',
+    'https://pic2.zhimg.com/80/v2-939e88045f0c8f57903894d034c07ae9_720w.png',
+    'https://pic1.zhimg.com/80/v2-0051dad77dcbe85d8c51e148387a3424_720w.png',
+    'https://pic4.zhimg.com/80/v2-6086e8b250ca4f72660224095f586d23_720w.png',
+    'https://pic3.zhimg.com/80/v2-bd7556ff438bec4c72b4c847d6531df2_720w.png',
+    'https://pic2.zhimg.com/80/v2-fe5106093c33e979ef7a7058055b09ed_720w.png',
+    'https://pic2.zhimg.com/80/v2-4541ed04cfb511178983adeb92ce4761_720w.png',
+    'https://pic1.zhimg.com/80/v2-3d3d7ff9f5a7257e6da0993898e36658_720w.png',
+    'https://pic1.zhimg.com/80/v2-b7b1fd615b399aa4c4acab04c68cfe80_720w.png',
+    'https://pic4.zhimg.com/80/v2-79de83ed2a57c7fc8c90473df454e8cb_720w.png',
+    'https://pic2.zhimg.com/80/v2-0f4e8eca1a4b00b82dfc06ebd5950a59_720w.png',
+    'https://pic1.zhimg.com/80/v2-361ca30d3d4b412ce9089b604abb9f10_720w.png',
+    'https://pic4.zhimg.com/80/v2-8c64eb96b0fc7123d6095afa626100c3_720w.png',
+    'https://pic3.zhimg.com/80/v2-addc180477a29912a6cf56bae3e1d18a_720w.png',
+    'https://pic1.zhimg.com/80/v2-e96f5291222649c90aed8ed70dd23590_720w.png',
+    'https://pic4.zhimg.com/80/v2-eeee58be224c90871d2cce628f2dc6e7_720w.png',
+    'https://pic1.zhimg.com/80/v2-d15fa23bde9663448e2bfb01c32a4440_720w.png',
+    'https://pic4.zhimg.com/80/v2-d59eada66e024dd2cb4b125cc59eef2f_720w.png',
+  ]
+}
