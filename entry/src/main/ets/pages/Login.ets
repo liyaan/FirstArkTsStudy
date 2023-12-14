@@ -9,6 +9,8 @@ import { StringUtils } from '../common/utils/StringUtils'
 struct Login {
   @State loginAccount: string = ''
   @State loginPassword: string = ''
+  @State scale1: number = 1
+  @State opacity1: number = 1
 
   build() {
     Column() {
@@ -75,14 +77,30 @@ struct Login {
             { url: 'pages/Register' }
           )
         })
-    }.width('100%')
+    }
+    .width('100%')
     .height('100%')
     .backgroundColor('#f0f0f0')
     .alignItems(HorizontalAlign.Center)
+    .scale({ y: this.scale1 })
+    .opacity(this.opacity1)
   }
 
   onBackPress() {
     router.clear()
+  }
+
+  pageTransition() {
+    // progress动效的归一化进度
+    PageTransitionEnter({}).onEnter((type: RouteType, progress: number) => {
+      this.scale1 = progress
+      this.opacity1 = progress
+    })
+
+    PageTransitionExit({}).onExit((type: RouteType, progress: number) => {
+      this.scale1 = 1 - progress
+      this.opacity1 = 1 - progress
+    })
   }
 }
 

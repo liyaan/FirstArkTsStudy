@@ -16,6 +16,7 @@
     "pages/AddInfo",
     "pages/SimpleVideoPlay",
     "pages/DetailPage",
+    "pages/AppServer",
     "pages/DetailListPage"
   ]
 }

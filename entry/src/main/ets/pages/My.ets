@@ -46,6 +46,9 @@ export struct My {
       .height(150).padding({ left: 25 }).backgroundColor('#ffffff')
 
       this.item($r('app.media.avocado'), '服务', 15, () => {
+        router.pushUrl({
+          url: 'pages/AppServer'
+        })
       })
       this.item($r('app.media.blueberry'), '发送邮件', 15, () => {
         router.pushUrl({

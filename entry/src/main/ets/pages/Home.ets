@@ -6,37 +6,53 @@ import { UserData } from '../model/UserData'
 @Entry
 @Component
 struct Home {
+  @State rotateAngle: number = 0
+  @State itemAlign: FlexAlign = FlexAlign.Start;
+  allAlign: FlexAlign[] = [FlexAlign.Start, FlexAlign.Center];
+  @State mWidth: number = 100
+  @State mHeight: number = 100
+  @State scale1: number = 1
+  @State opacity1: number = 1
 
   onPageShow() {
-    setTimeout(async () => {
+    animateTo({ duration: 1500, curve: Curve.EaseInOut, onFinish: () => {
+
       UserData.getPrefer('token', (token) => {
         ConsoleUtils.log("UserData " + token)
         if (token) {
-          ConsoleUtils.log("UserData " + "aaaaaaaaaaaaaaaaaaaaaaaaaaaa")
           StringUtils.TOKEN_STRING = token
           router.pushUrl({ url: 'pages/HomeTab' })
-
         } else {
-          ConsoleUtils.log("UserData " + "bbbbbbbbbbbbbbbbbbbbbbbbbb")
           router.pushUrl({ url: 'pages/Login' })
         }
       }, () => {
-        ConsoleUtils.log("UserData " + "ccccccccccccccccccccccccccc")
         router.pushUrl({ url: 'pages/Login' })
       })
-
-    }, 1000)
+    } }, () => {
+      this.rotateAngle = 720
+      this.itemAlign = FlexAlign.Center
+      this.mWidth = 150
+      this.mHeight = 150
+    })
+    // setTimeout(async () => {
+    //
+    //
+    // }, 1000)
   }
 
   build() {
     Flex({
       direction: FlexDirection.Column,
       alignItems: ItemAlign.Center,
-      justifyContent: FlexAlign.Center
+      justifyContent: this.itemAlign
     }) {
       Image($r('app.media.logo'))
-        .width(100)
-        .height(100)
+        .width(this.mWidth)
+        .height(this.mHeight)
+        .rotate({
+          y: 1,
+          angle: this.rotateAngle
+        })
       Text('健康饮食')
         .fontSize(18)
         .fontColor(Color.White)
@@ -45,8 +61,24 @@ struct Home {
         .fontSize(16)
         .fontColor(Color.White)
         .margin({ top: 10 })
-    }.width('100%')
+    }
+    .width('100%')
     .height('100%')
     .backgroundColor('#99ff99')
+    .scale({ x: this.scale1 })
+    .opacity(this.opacity1)
+  }
+
+  pageTransition() {
+    // progress动效的归一化进度
+    PageTransitionEnter({}).onEnter((type: RouteType, progress: number) => {
+      this.scale1 = 1
+      this.opacity1 = progress
+    })
+    // progress动效的归一化进度
+    PageTransitionExit({}).onExit((type: RouteType, progress: number) => {
+      this.scale1 = 1 - progress
+      this.opacity1 = 1 - progress
+    })
   }
 }
