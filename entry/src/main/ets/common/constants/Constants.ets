@@ -149,4 +149,6 @@ export default class Constants {
    */
   static readonly TAG_DETAIL_PAGE: string = 'DetailListPage push error ';
 
+
+
 }

@@ -17,6 +17,7 @@
     "pages/SimpleVideoPlay",
     "pages/DetailPage",
     "pages/AppServer",
+    "pages/ArkTsNative",
     "pages/DetailListPage"
   ]
 }

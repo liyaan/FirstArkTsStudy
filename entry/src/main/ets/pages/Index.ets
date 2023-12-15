@@ -35,8 +35,8 @@ struct Index {
         Image($r("app.media.icon"))
           .width(this.imageWidth)
           .interpolation(ImageInterpolation.High)
-      }.width('90%')
-      .height(350)
+      }.width('80%')
+      .height(300)
       .alignItems(VerticalAlign.Center)
       .justifyContent(FlexAlign.Center)
 
@@ -120,6 +120,14 @@ struct Index {
             params: {
               name: '逢七过'
             }
+          })
+        })
+      Button("ArkTS调用Native函数")
+        .styleButton()
+        .margin({ top: 10 })
+        .onClick(() => {
+          router.pushUrl({
+            url: "pages/ArkTsNative",
           })
         })
     }
