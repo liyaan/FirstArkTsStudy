@@ -7,12 +7,39 @@ import { HttpManager } from '../common/http/HttpManager'
 import { PersonDynamicList } from '../model/PersonDynamicList'
 import { RequestMethod } from '../common/http/RequestOptions'
 import { ConsoleUtils } from '../model/ConsoleUtils'
+import { Permission } from './Permission'
+import { ToastUtils } from '../model/ToastUtils'
 
 @Component
 export struct My {
   @State name: string = ''
   @State imageUrl: string = ''
   @State info: string = ''
+  dialogController: CustomDialogController = new CustomDialogController({
+    builder: Permission(
+      {
+        permissions: ['ohos.permission.APPROXIMATELY_LOCATION'],
+        accessText: "获取权限的为定位权限",
+        confirm: () => {
+          ToastUtils.showOne("获取权限成功")
+          this.dialogController.close()
+        },
+        noPermission: () => {
+          ToastUtils.showOne("权限没有获取")
+          // this.dialogController.close()
+        },
+        gotoSetting: () => {
+          ToastUtils.showOne("禁止权限需要进入系统设置打开权限")
+          this.dialogController.close()
+        }
+      }
+    ),
+    autoCancel: true,
+    alignment: DialogAlignment.Bottom,
+    offset: { dx: 0, dy: -20 },
+    gridCount: 4,
+    customStyle: false
+  })
   // @State modelData: MyModel = new MyModel()
   aboutToAppear() {
     UserData.getPrefer("id", (id) => {
@@ -65,6 +92,7 @@ export struct My {
 
       })
       this.item($r('app.media.kiwi'), '表情', 0, () => {
+        this.dialogController.open()
       })
       Button('学习Demo')
         .width('100%')
