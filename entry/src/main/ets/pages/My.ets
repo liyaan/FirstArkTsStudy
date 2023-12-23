@@ -9,7 +9,18 @@ import { RequestMethod } from '../common/http/RequestOptions'
 import { ConsoleUtils } from '../model/ConsoleUtils'
 import { Permission } from './Permission'
 import { ToastUtils } from '../model/ToastUtils'
+import featureAbility from '@ohos.ability.featureAbility'
 
+
+// let promise = featureAbility.startAbility(
+//   {
+//     want:
+//     {
+//       bundleName: "com.jstest.service",
+//       abilityName: "com.jstest.service.ServiceAbility",
+//     },
+//   }
+// );
 @Component
 export struct My {
   @State name: string = ''
@@ -92,7 +103,16 @@ export struct My {
 
       })
       this.item($r('app.media.kiwi'), '表情', 0, () => {
-        this.dialogController.open()
+        // this.dialogController.open()
+        featureAbility.startAbility(
+          {
+            want:
+            {
+              bundleName: "ets.servicetextability",
+              abilityName: "ets.servicetextability.ServiceTextAbility",
+            },
+          }
+        );
       })
       Button('学习Demo')
         .width('100%')

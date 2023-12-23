@@ -35,6 +35,14 @@
     {
       "name": "empty",
       "value": "empty"
+    },
+    {
+      "name": "ServiceTextAbility_desc",
+      "value": "form_description"
+    },
+    {
+      "name": "ServiceTextAbility_label",
+      "value": "form_label"
     }
   ]
 }

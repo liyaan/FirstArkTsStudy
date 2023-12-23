@@ -33,12 +33,27 @@
         ]
       }
     ],
-    "requestPermissions":[
+    "requestPermissions": [
       {
         "name": "ohos.permission.INTERNET"
       },
       {
         "name": "ohos.permission.APPROXIMATELY_LOCATION"
+      }
+    ],
+    "extensionAbilities": [
+      {
+        "name": "ServiceTextAbility",
+        "srcEntry": "./ets/servicetextability/ServiceTextAbility.ts",
+        "label": "$string:ServiceTextAbility_label",
+        "description": "$string:ServiceTextAbility_desc",
+        "type": "form",
+        "metadata": [
+          {
+            "name": "ohos.extension.form",
+            "resource": "$profile:form_config"
+          }
+        ]
       }
     ]
   }

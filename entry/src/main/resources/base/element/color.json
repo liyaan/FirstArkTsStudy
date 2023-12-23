@@ -23,6 +23,10 @@
     {
       "name": "detail_background",
       "value": "#000000"
+    },
+    {
+      "name": "mini_text_font_color",
+      "value": "#E6FFFFFF"
     }
   ]
 }

@@ -59,9 +59,12 @@ class Item {
 //   .padding({left:15,right:15})
 // }
 
-@Entry
+let storageNew = LocalStorage.GetShared()
+
+@Entry(storageNew)
 @Component
 struct ShopList {
+  @LocalStorageLink('newTypeDetail') newTypeDetail: string = ""
   private items: Array<Item> = [
     new Item("小米9", 3999, $r('app.media.icon'), 900),
     new Item("小米10", 4999, $r('app.media.icon')),
@@ -76,7 +79,7 @@ struct ShopList {
     Column({ space: 8 }) {
       Header({ title: "商品列表", onLeftClick: (ev: ClickEvent) => {
         router.back()
-      } })
+      }, isVisLeft: this.newTypeDetail === '1001' ? false : true })
         .margin({ bottom: 20, top: 20 })
 
       List({ space: 5 }) {
