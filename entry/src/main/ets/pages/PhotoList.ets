@@ -7,6 +7,7 @@ import { ToastUtils } from '../model/ToastUtils'
 @Component
 export struct PhotoList {
   @State imageList: Array<ImageList> = new Array()
+  @State isRefreshing: boolean = false
   page: number = 0
   isMoreLoad: boolean = false
 
@@ -16,18 +17,37 @@ export struct PhotoList {
 
   build() {
     Column() {
-      List({ space: 5 }) {
-        ForEach(this.imageList, (item, index) => {
-          this.items(item, index)
-        })
-      }.onScrollIndex((firstIndex: number, lastIndex: number) => {
-        ConsoleUtils.log("firstIndex:" + firstIndex + "," + "lastIndex:" + lastIndex)
-        if (lastIndex == this.imageList.length - 1 && !this.isMoreLoad) {
-          this.isMoreLoad = true
-          this.page++
-          this.httpSend()
+      Refresh({ refreshing: $$this.isRefreshing, friction: 100 }) {
+        List({ space: 5 }) {
+          ForEach(this.imageList, (item, index) => {
+            this.items(item, index)
+          })
         }
+        .onScrollIndex((firstIndex: number, lastIndex: number) => {
+          ConsoleUtils.log("firstIndex:" + firstIndex + "," + "lastIndex:" + lastIndex)
+          if (lastIndex == this.imageList.length - 1 && !this.isMoreLoad) {
+            this.isMoreLoad = true
+            this.page++
+            this.httpSend()
+          }
+        })
+        .width('100%')
+        .height('100%')
+        .divider({ strokeWidth: 1, color: Color.Yellow, startMargin: 10, endMargin: 10 })
+        .scrollBar(BarState.Off)
+      }.onStateChange((refreshStatus: RefreshStatus) => {
+        console.info('Refresh onStatueChange state is ' + refreshStatus)
       })
+      .onRefreshing(() => {
+        setTimeout(() => {
+          this.isRefreshing = false
+          this.isMoreLoad = true
+          this.page = 0
+          this.httpSend()
+        }, 2000)
+        console.log('onRefreshing test')
+      })
+
     }.width('100%')
     .height('100%')
     .backgroundColor('#f0f0f0')
@@ -61,8 +81,13 @@ export struct PhotoList {
   }
 
   httpSend() {
+    if (this.page == 0) {
+      if (this.imageList.length > 0) {
+        this.imageList.length = 0
+        ConsoleUtils.log("this.imageList.length = " + this.imageList.length)
+      }
+    }
     HttpUtils.get('getImages?page=' + this.page + '&size=10', (json) => {
-
       let initValue = json.result.list.length
       if (initValue > 0) {
         for (var i = 0; i < initValue; i++) {

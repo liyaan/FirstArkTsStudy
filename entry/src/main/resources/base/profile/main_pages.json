@@ -19,6 +19,8 @@
     "pages/AppServer",
     "pages/ArkTsNative",
     "pages/NewList",
+    "pages/WebListPage",
+    "pages/web",
     "pages/DetailListPage"
   ]
 }

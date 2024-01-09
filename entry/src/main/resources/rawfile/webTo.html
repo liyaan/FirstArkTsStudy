@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+<script>
+        function toOnos() {
+            let obj = {
+                name: "张三",
+                age: "20"
+            }
+            confirm(JSON.stringify(obj))
+        }
+        function sendText(text) {
+            document.getElementById("divCon").innerText = text
+        }
+    </script>
+
+<div>
+    <button onclick="toOnos()">给原生应用传递数据</button>
+    <div id="divCon" style="width: 100px;height: 100px;background: #ddd;margin-top: 20px;"></div>
+</div>
+
+</body>
+
+</html>
