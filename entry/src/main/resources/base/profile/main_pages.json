@@ -21,6 +21,7 @@
     "pages/NewList",
     "pages/WebListPage",
     "pages/web",
+    "pages/MusicPlay",
     "pages/DetailListPage"
   ]
 }

@@ -39,6 +39,8 @@
       },
       {
         "name": "ohos.permission.APPROXIMATELY_LOCATION"
+      },{
+        "name": "ohos.permission.READ_MEDIA"
       }
     ],
     "extensionAbilities": [

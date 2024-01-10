@@ -156,6 +156,14 @@ struct Index {
                 }
               })
             })
+          Button("音乐播放器")
+            .styleButton()
+            .margin({ top: 10 })
+            .onClick(() => {
+              router.pushUrl({
+                url: "pages/MusicPlay",
+              })
+            })
         }.width('100%')
         .layoutWeight(1)
       }
