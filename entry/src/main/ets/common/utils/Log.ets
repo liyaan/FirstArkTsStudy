@@ -8,4 +8,11 @@ export class Log {
   static error(tag, message) {
     ConsoleUtils.error(message)
   }
+  static infoTag(message) {
+    ConsoleUtils.log(message)
+  }
+
+  static errorTag(message) {
+    ConsoleUtils.error(message)
+  }
 }

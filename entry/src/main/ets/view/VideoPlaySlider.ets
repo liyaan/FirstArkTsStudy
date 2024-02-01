@@ -27,7 +27,7 @@ export struct VideoSlider {
 
   build() {
     Row({ space: MARGIN_FONT_SIZE.FIRST_MARGIN }) {
-      Image(this.isPlay ? $r('app.media.ic_pause') : $r('app.media.ic_play'))
+      Image(this.isPlay ? $r("app.media.ic_pause_png") : $r("app.media.ic_play_png"))
         .width(IMAGE_SIZE)
         .height(IMAGE_SIZE)
         .margin({ left: MARGIN_FONT_SIZE.FIRST_MARGIN })

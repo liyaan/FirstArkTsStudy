@@ -124,7 +124,7 @@ struct PhotoCard {
         "action": this.ACTION_TYPE,
         "abilityName": this.ABILITY_NAME,
         "params": {
-          "message": this.MESSAGE
+          "targetPage": 'funB'
         }
       });
     })

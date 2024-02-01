@@ -18,5 +18,7 @@ export class MediaBean {
    * 本地存储地址
    */
   public localUrl: string;
+  public imgWidth: number;
+  public imgHeight: number;
 }
 

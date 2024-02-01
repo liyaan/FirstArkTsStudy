@@ -102,17 +102,23 @@ export struct My {
         })
 
       })
-      this.item($r('app.media.kiwi'), '表情', 0, () => {
+      this.item($r('app.media.kiwi'), '歌曲', 0, () => {
         // this.dialogController.open()
-        featureAbility.startAbility(
-          {
-            want:
-            {
-              bundleName: "ets.servicetextability",
-              abilityName: "ets.servicetextability.ServiceTextAbility",
-            },
+        router.pushUrl({
+          url: "pages/MusicMainPage",
+          params: {
+            'signType': 0
           }
-        );
+        })
+      })
+      this.item($r('app.media.kiwi'), '图片裁剪', 0, () => {
+        // this.dialogController.open()
+        router.pushUrl({
+          url: "pages/ImageEdit",
+          params: {
+            'signType': 0
+          }
+        })
       })
       Button('学习Demo')
         .width('100%')

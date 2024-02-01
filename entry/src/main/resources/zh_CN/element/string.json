@@ -43,6 +43,134 @@
     {
       "name": "ServiceTextAbility_label",
       "value": "form_label"
+    },
+    {
+      "name": "MainAbility_label",
+      "value": "图片处理"
+    },
+    {
+      "name": "publish_comments",
+      "value": "发表评价"
+    },
+    {
+      "name": "submit",
+      "value": "提交"
+    },
+    {
+      "name": "commodity_comment",
+      "value": "商品评价"
+    },
+    {
+      "name": "tip",
+      "value": "      符合评价规则，评价超过10个字即可获得桔豆"
+    },
+    {
+      "name": "get_orange_beans",
+      "value": "再写10个字可获得10桔豆"
+    },
+    {
+      "name": "anonymous_display",
+      "value": "您的评价内容在商品评价页面将会被匿名展示。"
+    },
+    {
+      "name": "next",
+      "value": "下一步"
+    },
+    {
+      "name": "complete",
+      "value": "完成"
+    },
+    {
+      "name": "worst",
+      "value": "非常差"
+    },
+    {
+      "name": "worse",
+      "value": "差"
+    },
+    {
+      "name": "general",
+      "value": "一般"
+    },
+    {
+      "name": "good",
+      "value": "好"
+    },
+    {
+      "name": "best",
+      "value": "非常好"
+    },
+    {
+      "name": "add_picture",
+      "value": "添加图片/照片"
+    },
+    {
+      "name": "media_permission",
+      "value": "允许应用读取用户外部存储中的媒体文件信息"
+    },
+    {
+      "name": "media_write_permission",
+      "value": "允许应用读写用户外部存储中的媒体文件信息"
+    },
+    {
+      "name": "media_location_permission",
+      "value": "允许应用访问用户媒体文件中的地理位置信息"
+    },
+    {
+      "name": "EntryFormAbility_desc",
+      "value": "form_description"
+    },
+    {
+      "name": "EntryFormAbility_label",
+      "value": "form_label"
+    },
+    {
+      "name": "reason_background",
+      "value": "保持在后台运行"
+    },
+    {
+      "name": "collection_num",
+      "value": "12.5万"
+    },
+    {
+      "name": "list_name",
+      "value": "独立民谣"
+    },
+    {
+      "name": "playlist_Introduction",
+      "value": "歌单选取了一些比较受关注的民谣歌曲。"
+    },
+    {
+      "name": "play_list",
+      "value": "歌单"
+    },
+    {
+      "name": "play_all",
+      "value": "播放全部(%d)"
+    },
+    {
+      "name": "wonderful_comment",
+      "value": "精彩评论（999+）"
+    },
+    {
+      "name": "new_comment",
+      "value": "最新评论"
+    },
+    {
+      "name": "collect",
+      "value": "收藏"
+    },
+    {
+      "name": "download",
+      "value": "下载"
+    },
+    {
+      "name": "comment",
+      "value": "评论"
+    },
+    {
+      "name": "share",
+      "value": "分享"
     }
   ]
 }

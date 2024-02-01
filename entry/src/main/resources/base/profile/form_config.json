@@ -21,7 +21,7 @@
     },
     {
       "name": "photo",
-      "description": "This is a service widget.",
+      "description": "PhotoCard",
       "src": "./ets/photo/pages/PhotoCard.ets",
       "uiSyntax": "arkts",
       "window": {
@@ -36,6 +36,44 @@
       "defaultDimension": "2*2",
       "supportDimensions": [
         "2*2"
+      ]
+    },
+    {
+      "name": "widget",
+      "description": "WidgetCard",
+      "src": "./ets/widget/pages/WidgetCard.ets",
+      "uiSyntax": "arkts",
+      "window": {
+        "designWidth": 720,
+        "autoDesignWidth": true
+      },
+      "colorMode": "auto",
+      "isDefault": false,
+      "updateEnabled": false,
+      "scheduledUpdateTime": "10:30",
+      "updateDuration": 1,
+      "defaultDimension": "2*2",
+      "supportDimensions": [
+        "2*2"
+      ]
+    },
+    {
+      "name": "music",
+      "description": "musicSmall",
+      "src": "./ets/music/pages/MusicCard.ets",
+      "uiSyntax": "arkts",
+      "window": {
+        "designWidth": 720,
+        "autoDesignWidth": true
+      },
+      "colorMode": "auto",
+      "isDefault": false,
+      "updateEnabled": false,
+      "scheduledUpdateTime": "10:30",
+      "updateDuration": 1,
+      "defaultDimension": "1*2",
+      "supportDimensions": [
+        "1*2"
       ]
     }
   ]

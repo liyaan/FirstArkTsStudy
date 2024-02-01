@@ -175,5 +175,49 @@ export class MediaHelper {
 
     }
   }
+
+
+  async getImageWidthAndHeight(uri: string): Promise<MediaBean> {
+
+    if (StringUtils.isNullOrEmpty(uri)) {
+      return;
+    }
+    let fileList: Array<mediaLibrary.FileAsset> = [];
+
+    const parts: string[] = uri.split('/');
+    const id: string = parts.length > 0 ? parts[parts.length - 1] : '-1';
+    let mediaBean = new MediaBean()
+    try {
+
+      let media = mediaLibrary.getMediaLibrary(this.mContext);
+      let mediaFetchOptions: mediaLibrary.MediaFetchOptions = {
+        selections: mediaLibrary.FileKey.ID + '= ?',
+        selectionArgs: [id],
+        uri: uri
+      };
+
+      let fetchFileResult = await media.getFileAssets(mediaFetchOptions);
+      Log.info(this.TAG, `fileList getFileAssetsFromType fetchFileResult.count = ${fetchFileResult.getCount()}`);
+      fileList = await fetchFileResult.getAllObject();
+      fetchFileResult.close();
+      await media.release();
+
+    } catch (e) {
+      Log.error(this.TAG, "query: file data  exception ");
+    }
+
+    if (fileList && fileList.length > 0) {
+
+      let fileInfoObj = fileList[0];
+      Log.info(this.TAG, `file id = ${JSON.stringify(fileInfoObj.id)} , uri = ${JSON.stringify(fileInfoObj.uri)}`);
+      Log.info(this.TAG, `file fileList displayName = ${fileInfoObj.displayName} ,size = ${fileInfoObj.size} ,mimeType = ${fileInfoObj.mimeType}`);
+      mediaBean.imgWidth = fileInfoObj.width
+      mediaBean.imgHeight = fileInfoObj.height
+      return mediaBean
+    }
+    return mediaBean
+  }
+
+
 }
 

@@ -14,7 +14,7 @@
     "abilities": [
       {
         "name": "EntryAbility",
-        "srcEntry": "./ets/entryability/EntryAbility.ts",
+        "srcEntry": "./ets/entryability/EntryAbility.ets",
         "description": "$string:EntryAbility_desc",
         "icon": "$media:icon",
         "label": "$string:EntryAbility_label",
@@ -39,14 +39,42 @@
       },
       {
         "name": "ohos.permission.APPROXIMATELY_LOCATION"
-      },{
-        "name": "ohos.permission.READ_MEDIA"
+      },
+      {
+        "name": "ohos.permission.READ_MEDIA",
+        "reason": "$string:media_permission",
+        "usedScene": {
+          "abilities": [
+            "EntryAbility"
+          ],
+          "when": "inuse"
+        }
+      },
+      {
+        "name": "ohos.permission.WRITE_MEDIA",
+        "reason": "$string:media_write_permission",
+        "usedScene": {
+          "abilities": [
+            "EntryAbility"
+          ],
+          "when": "inuse"
+        }
+      },
+      {
+        "name": "ohos.permission.MEDIA_LOCATION",
+        "reason": "$string:media_location_permission",
+        "usedScene": {
+          "abilities": [
+            "EntryAbility"
+          ],
+          "when": "inuse"
+        }
       }
     ],
     "extensionAbilities": [
       {
         "name": "ServiceTextAbility",
-        "srcEntry": "./ets/servicetextability/ServiceTextAbility.ts",
+        "srcEntry": "./ets/servicetextability/ServiceTextAbility.ets",
         "label": "$string:ServiceTextAbility_label",
         "description": "$string:ServiceTextAbility_desc",
         "type": "form",

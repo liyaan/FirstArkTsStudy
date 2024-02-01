@@ -22,6 +22,12 @@
     "pages/WebListPage",
     "pages/web",
     "pages/MusicPlay",
+    "pages/MusicMainPage",
+    "pages/ImageEdit",
+    "pages/PlayPage",
+    "pages/MusicComment",
+    "view/ChoicePhoto",
+    "pages/SelectPhotoPage",
     "pages/DetailListPage"
   ]
 }

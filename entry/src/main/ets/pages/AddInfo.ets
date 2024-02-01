@@ -115,7 +115,7 @@ struct AddInfo {
         fontColor: $r("app.color.blue_089ed9"),
         onItemClick: () => {
           MediaHelper.prototype.selectPicture().then((filePath) => {
-            ConsoleUtils.log(filePath.fileName)
+            ConsoleUtils.log(filePath.localUrl)
           }).finally(() => {
             let num = this.getRandomInt(0, ImageData.images.length - 1)
 

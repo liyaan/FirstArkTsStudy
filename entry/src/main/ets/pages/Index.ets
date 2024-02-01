@@ -164,6 +164,14 @@ struct Index {
                 url: "pages/MusicPlay",
               })
             })
+          Button("图片选择")
+            .styleButton()
+            .margin({ top: 10 })
+            .onClick(() => {
+              router.pushUrl({
+                url: "pages/SelectPhotoPage",
+              })
+            })
         }.width('100%')
         .layoutWeight(1)
       }
